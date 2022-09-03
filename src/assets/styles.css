@@ -1,0 +1,31 @@
+.dashboard{
+    background-color: white;
+}
+
+
+.wrap-caja{
+    background-color:white;
+}
+
+.youtube {
+    background-color: white;
+    text-align:center;
+    margin-top:2rem;
+}
+
+.thumb{
+    display: block;
+    margin:0 auto;
+}
+
+.title{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.delete-icon{
+    position: relative;
+    top: 2rem;
+    right: -9rem;
+}

@@ -23,7 +23,7 @@
   <span v-else-if="isError">Error: {{ error.message }}</span>
   <!-- We can assume by this point that `isSuccess === true` -->
   <w-flex wrap class="text-center" v-else>
-  <div class="xs12 md6 lg4 xl2 pa1" v-for="todo in data.body.videos" :key="todo.id">
+  <div class="wrap-caja xs12 md6 lg4 xl2 pa1" v-for="todo in data.body.videos" :key="todo.id">
   <YoutubeBox :id="todo.id" :link="todo.link" :youtubeId="todo.youtubeId"/>
   </div>
   </w-flex>
