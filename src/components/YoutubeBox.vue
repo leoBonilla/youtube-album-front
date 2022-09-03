@@ -74,8 +74,29 @@ export default {
             closeOnConfirm: false
         }).then((result) => {
             if (result.value) {
-              fetch('https://5g094irhc7.execute-api.us-east-1.amazonaws.com/video/a78e8120-2f75-4ae5-996d-2034a64616e5', { method: 'DELETE' })
-    .then(() => this.status = 'Delete successful');
+              const requestOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ id: this.id })
+  };
+  fetch('https://5g094irhc7.execute-api.us-east-1.amazonaws.com/delete', requestOptions)
+    .then(async response => {
+      const data = await response.json();
+
+      // check for error response
+      if (!response.ok) {
+        // get error message from body or default to response status
+        const error = (data && data.message) || response.status;
+        return Promise.reject(error);
+      }
+
+      this.postId = data.id;
+    })
+    .catch(error => {
+      this.errorMessage = error;
+      console.error('There was an error!', error);
+    });
+                    
             }
         });   
     },
